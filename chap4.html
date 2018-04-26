@@ -10,11 +10,16 @@
 
   let range = (start, end, step) => {
     let a = [];
-    if (!step) { // step == undefined
-      step = 0;
+    if (!step || step == 0) { // step == undefined
+      step = 1;
     }
-    if (start < end && step >= 0 || start > end && step <= 0) {
+    if ( (start < end) && step >= 0) {
       for (let i = start; i <= end; i+=step) {
+        a.push(i);
+      }
+    }
+    else {
+      for (let i = start; i >= end; i+=step) {
         a.push(i);
       }
     }
@@ -29,9 +34,11 @@
     }
     return t;
   }
-  console.log((range(1,10,2)));
-  console.log((range(1,10,-2)));
-  console.log(range(1,10)[0]);
-  console.log(sum(range(1,10)));
+  console.log(range(1,10,2));
+  console.log(range(10,1,-2));
+  let a = [2,4,6,8];
+  console.log(a[1]);
+  console.log(range(1,10));
+  console.log(sum(range(10,1,-1)));
 
 </script>
