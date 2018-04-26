@@ -1,0 +1,37 @@
+<script>
+  console.log("   okay \n   ".trim());
+  console.log(String(6).padStart(3, "0"));
+  let sentence = "Secretarybirds specialize in stomping";
+  let words = sentence.split(" ");
+  console.log(words);
+  console.log(words.join(". "));
+  let numbers = [5,7,1];
+  // console.log(max(...numbers));
+
+  let range = (start, end, step) => {
+    let a = [];
+    if (!step) { // step == undefined
+      step = 0;
+    }
+    if (start < end && step >= 0 || start > end && step <= 0) {
+      for (let i = start; i <= end; i+=step) {
+        a.push(i);
+      }
+    }
+    return a;
+  }
+
+  let sum = (a) => {
+    t = 0;
+    // console.log(a.length);
+    for (let i = 0; i < a.length; i++) {
+      t += a[i];
+    }
+    return t;
+  }
+  console.log((range(1,10,2)));
+  console.log((range(1,10,-2)));
+  console.log(range(1,10)[0]);
+  console.log(sum(range(1,10)));
+
+</script>
