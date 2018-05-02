@@ -1,10 +1,10 @@
 <script>
-  console.log("   okay \n   ".trim());
-  console.log(String(6).padStart(3, "0"));
+  // console.log("   okay \n   ".trim());
+  // console.log(String(6).padStart(3, "0"));
   let sentence = "Secretarybirds specialize in stomping";
   let words = sentence.split(" ");
-  console.log(words);
-  console.log(words.join(". "));
+  // console.log(words);
+  // console.log(words.join(". "));
   let numbers = [5,7,1];
   // console.log(max(...numbers));
 
@@ -34,11 +34,101 @@
     }
     return t;
   }
-  console.log(range(1,10,2));
-  console.log(range(10,1,-2));
+  // console.log(range(1,10,2));
+  // console.log(range(10,1,-2));
   let a = [2,4,6,8];
-  console.log(a[1]);
-  console.log(range(1,10));
-  console.log(sum(range(10,1,-1)));
+  // console.log(a[1]);
+  // console.log(range(1,10));
+  // console.log(sum(range(10,1,-1)));
+
+
+  let reverseArray = (array) => {
+    let reverse = [];
+    for (let i = array.length - 1; i >= 0; i--) {
+      reverse.push(array[i]);
+    }
+    return reverse;
+  }
+
+  let reverseArrayInPlace = (array) => {
+    const len = array.length;
+    // console.log(len);
+    // console.log(len/2);
+    for (let i=0; i < len/2; i++) {
+      let a = array[len-i-1];
+      let b = array[i];
+      array[i] = a;
+      array[len-i-1] = b;
+    }
+  }
+
+  // console.log(reverseArray(["A", "B", "C"]));
+  let arrayValue = [1, 2, 3, 4, 5];
+  reverseArrayInPlace(arrayValue);
+  // console.log(arrayValue);
+  arrayValue = [1, 2, 3, 4, 5, 6];
+  reverseArrayInPlace(arrayValue);
+  // console.log(arrayValue);
+
+  let list = {
+    value: 1,
+    rest: {
+      value: 2,
+      rest: {
+        value: 3,
+        rest: null
+      }
+    }
+  };
+
+  // console.log(list);
+
+  let list1 = {
+    value: 0, rest: list
+  }
+
+  let list2 = {
+    value: -1, rest: list
+  }
+
+  // console.log(list1);
+  // console.log(list2);
+
+  let deepEqual = (a, b) => {
+    if (a === b) return true;
+    if (a == null || typeof a != "object" ||
+        b == null || typeof b != "object") return false;
+
+    let keysA = Object.keys(a), keysB = Object.keys(b);
+    if (keysA.length != keysB.length) return false;
+
+    for (let key of keysA) {
+      if (!keysB.includes(key) || !deepEqual(a[key], b[key])) return false;
+    }
+    // if (typeof(a) == 'object' && typeof(b) == 'object' && a != null && b != null) {
+    //   if (Object.keys(a) instanceof Array && Object.keys(b) instanceof Array) {
+    //     if (Object.keys(a).length == Object.keys(b).length) {
+    //       for (let i = 0; i < Object.keys(a).length; i++) {
+    //         return deepEqual (a[i], b[i]);
+    //       }
+    //     } else {
+    //       return false;
+    //     }
+    //   } else {
+    //     return false;
+    //   }
+    // }
+    // else {
+    //   return a === b;
+    // }
+    return true;
+  }
+
+  let obj = {here: {is: "an"}, objec: 2};
+  console.log(deepEqual(obj, obj));
+  console.log(deepEqual(obj, {here: 1, object: 2}));
+
+
+
 
 </script>
