@@ -137,11 +137,95 @@ child.addEventListener('click', function () {
   //   }, 1000);
   // }
 
-    for (let i = 0; i < 5; i++) {
-      (function (i) {
-        window.setTimeout(function(){console.log(i+1)},1000*(i+1));
-      })(i);
-    }
+  // for (let i = 0; i < 5; i++) {
+  //   (function (i) {
+  //     window.setTimeout(function(){console.log(i+1)},1000*(i+1));
+  //   })(i);
+  // }
+
+
+
+  var myArr = [
+      [ 1, 2 ],
+      [ 3, 4, 5 ],
+      [ 6, 7, 8 ]
+  ];
+
+  // 將所有元素都與之前代入的陣列相接起來，第一次處理時代入初始值空陣列
+  var newArr = myArr.reduce(function(arr, element) {
+      // ex: [ 1, 2 ].concat([ 3, 4, 5 ])
+      let result = arr.concat(element);
+      console.log(result);
+      return result;
+  }, []);
+
+  // [ 1, 2, 3, 4, 5, 6, 7, 8 ]
+  console.log(newArr);
+
+
+const array1 = [1, 2, 3, 4];
+// const reducer = (accumulator, currentValue) => accumulator + currentValue;
+const reducer = function (accumulator, currentValue) {
+   accumulator + currentValue;
+}
+
+// 1 + 2 + 3 + 4
+console.log(array1.reduce(reducer));
+// expected output: 10
+
+// 5 + 1 + 2 + 3 + 4
+console.log(array1.reduce(reducer, 5));
+// expected output: 15
+
+var materials = [
+  'Hydrogen',
+  'Helium',
+  'Lithium',
+  'Beryllium'
+];
+
+materials.map(function(material) {
+  return material.length;
+}); // [8, 6, 7, 9]
+
+console.log(materials.map(function(material) {
+  return material.length;
+}));
+
+
+materials.map((material) => {
+  return material.length;
+}); // [8, 6, 7, 9]
+
+console.log(materials.map((material) => {
+  return material.length;
+}));
+
+materials.map(({length}) => length); // [8, 6, 7, 9]
+
+console.log(materials.map(({length}) => length));
+
+
+// const euros = [29.76, 41.85, 46.5];
+// const sum = euros.reduce((total, amount) => total + amount);
+
+  var euros = [29.76, 41.85, 46.5];
+  // var sum = euros.reduce(function (total, amount) {
+  //   console.log("total", total);
+  //   console.log("amount", amount);
+  //   return total + amount;
+  // });
+
+  const sum = euros.reduce((total, amount) => total + amount);
+  // var sum = euros.reduce( (total, amount) => {
+  //   // console.log("total", total);
+  //   // console.log("amount", amount);
+  //   return total + amount;
+  // });
+  console.log(sum); // 118.11
+
+
+
 
 
 </script>
